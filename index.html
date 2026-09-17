@@ -525,6 +525,31 @@ const STRIPE_PAYMENT_LINK = '';
 
 const state = { lang: 'en', theme: 'light' };
 
+function detectPreferredLanguage() {
+  const nav = window.navigator || {};
+  const candidates = [];
+
+  if (nav.languages && Array.isArray(nav.languages)) {
+    nav.languages.forEach((value) => candidates.push(String(value || '').toLowerCase()));
+  }
+
+  if (nav.language) candidates.unshift(String(nav.language).toLowerCase());
+  if (nav.userLanguage) candidates.unshift(String(nav.userLanguage).toLowerCase());
+
+  const seen = new Set();
+  for (const candidate of candidates) {
+    const normalized = candidate.replace('_', '-');
+    const base = normalized.split('-')[0];
+    for (const value of [normalized, base]) {
+      if (!value || seen.has(value)) continue;
+      seen.add(value);
+      if (LANGS[value]) return value;
+    }
+  }
+
+  return 'en';
+}
+
 function t(key) {
   const langMap = LANGS[state.lang] || LANGS.en;
   return langMap[key] || LANGS.en[key] || key;
@@ -762,7 +787,7 @@ const savedTheme = (() => {
 })();
 const preferredTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 setTheme(savedTheme || preferredTheme);
-setLanguage(savedLang && LANGS[savedLang] ? savedLang : 'en');
+setLanguage(savedLang && LANGS[savedLang] ? savedLang : detectPreferredLanguage());
 </script>
 
 </body>
