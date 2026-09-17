@@ -61,6 +61,13 @@
   .lang-btn.active {
     background: var(--ghost); border-color: var(--accent); color: var(--text);
   }
+  .theme-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; border-radius: 999px; border: 1px solid var(--line);
+    background: transparent; color: var(--text); cursor: pointer; font-size: 15px;
+    margin-right: 10px;
+  }
+  .theme-toggle:hover { border-color: var(--accent); }
   .cart-btn {
     display: flex; align-items: center; gap: 8px;
     background: none; border: 1px solid var(--line);
@@ -206,6 +213,9 @@
       <button class="lang-btn" type="button" data-lang="fr">FR</button>
       <button class="lang-btn" type="button" data-lang="de">DE</button>
     </div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <span id="themeIcon">☾</span>
+    </button>
     <button class="cart-btn" id="cartBtn" aria-label="Open cart"><span id="cartLabel">Cart</span> <span class="cart-count" id="cartCount">0</span></button>
   </nav>
 </header>
@@ -472,7 +482,7 @@ const PRODUCT_COPY = {
 
 const STRIPE_PAYMENT_LINK = '';
 
-const state = { lang: 'en' };
+const state = { lang: 'en', theme: 'light' };
 
 function t(key) {
   const langMap = LANGS[state.lang] || LANGS.en;
@@ -658,6 +668,21 @@ document.getElementById('checkoutBtn').addEventListener('click', () => {
   closeDrawer(); openCheckout();
 });
 
+function setTheme(theme) {
+  const selected = theme === 'dark' ? 'dark' : 'light';
+  state.theme = selected;
+  document.documentElement.setAttribute('data-theme', selected);
+  const toggle = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+  if (toggle && icon) {
+    const isDark = selected === 'dark';
+    toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    toggle.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+    icon.textContent = isDark ? '☀' : '☾';
+  }
+  try { localStorage.setItem('spira-theme', selected); } catch (e) {}
+}
+
 function setLanguage(lang) {
   if (!LANGS[lang]) lang = 'en';
   state.lang = lang;
@@ -673,6 +698,11 @@ function setLanguage(lang) {
   renderCart();
 }
 
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const nextTheme = state.theme === 'dark' ? 'light' : 'dark';
+  setTheme(nextTheme);
+});
+
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
 });
@@ -680,6 +710,11 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 const savedLang = (() => {
   try { return localStorage.getItem('spira-lang'); } catch (e) { return null; }
 })();
+const savedTheme = (() => {
+  try { return localStorage.getItem('spira-theme'); } catch (e) { return null; }
+})();
+const preferredTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+setTheme(savedTheme || preferredTheme);
 setLanguage(savedLang && LANGS[savedLang] ? savedLang : 'en');
 </script>
 
