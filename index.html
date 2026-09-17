@@ -204,6 +204,7 @@
       <button class="lang-btn active" type="button" data-lang="en">EN</button>
       <button class="lang-btn" type="button" data-lang="pt">PT</button>
       <button class="lang-btn" type="button" data-lang="fr">FR</button>
+      <button class="lang-btn" type="button" data-lang="de">DE</button>
     </div>
     <button class="cart-btn" id="cartBtn" aria-label="Open cart"><span id="cartLabel">Cart</span> <span class="cart-count" id="cartCount">0</span></button>
   </nav>
@@ -384,6 +385,45 @@ const LANGS = {
     tapEmail: 'Appuyez ci-dessous pour ouvrir votre messagerie avec la commande préremplie. Une fois reçue, nous enverrons une demande de paiement MB WAY à',
     forText: 'pour',
     viewCart: 'Voir le panier'
+  },
+  de: {
+    collection: 'Kollektion',
+    cart: 'Warenkorb',
+    browse: 'Katalog durchsuchen',
+    heroTitle: 'Licht,',
+    heroEm: 'transformiert.',
+    heroText: 'Acht skulpturale Lampen, jede einzeln gedruckt und handveredelt.',
+    collectionTitle: 'Der Katalog',
+    collectionIntro: 'Jedes Stück beginnt mit einer Linie, die um eine Form gewickelt wird, bis das Licht seinen eigenen Weg findet.',
+    footerNote: 'Einzigartige Lampen, auf Bestellung gefertigt.',
+    footerContact: 'Kontaktieren Sie uns — ',
+    cartTitle: 'Ihr Warenkorb',
+    subtotal: 'Zwischensumme',
+    checkout: 'Zur Kasse',
+    empty: 'Ihr Warenkorb ist leer.',
+    addToCart: 'In den Warenkorb',
+    added: 'Hinzugefügt',
+    flag: 'Highlight',
+    form: 'Form',
+    remove: 'Entfernen',
+    each: 'jeweils',
+    payNote: 'Zahlen Sie per MB WAY. Damit bestätigen Sie Ihre Bestellung per E-Mail — sobald sie eingegangen ist, senden wir Ihnen eine MB-WAY-Zahlungsanfrage an Ihre Telefonnummer, damit die Zahlung abgeschlossen wird.',
+    name: 'Name',
+    email: 'E-Mail',
+    phone: 'MB WAY-Telefonnummer',
+    address: 'Lieferadresse',
+    note: 'Hinweis (optional)',
+    send: 'Bestellung senden',
+    orderReady: 'Bestellung bereit zum Senden',
+    openEmail: 'E-Mail zum Bestätigen öffnen',
+    fillRequired: 'Bitte geben Sie Name, E-Mail, MB WAY-Telefonnummer und Lieferadresse ein.',
+    orderRequest: 'Bestellanforderung',
+    paymentMethod: 'Zahlungsmethode: MB WAY',
+    mbWayPhone: 'MB WAY:',
+    notePrefix: 'Hinweis:',
+    tapEmail: 'Tippen Sie unten, um Ihre E-Mail-App mit der bereits ausgefüllten Bestellung zu öffnen. Sobald wir sie erhalten, senden wir Ihnen eine MB-WAY-Zahlungsanfrage an',
+    forText: 'für',
+    viewCart: 'Warenkorb ansehen'
   }
 };
 
@@ -391,42 +431,50 @@ const PRODUCT_COPY = {
   helix: {
     en: { name: 'Helix', desc: 'A sphere built from dozens of curved ribs, wound around a single axis so the whole form reads as one continuous line.', form: 'Spiral-ribbed sphere' },
     pt: { name: 'Helix', desc: 'Uma esfera formada por dezenas de costelas curvas, enroladas em torno de um único eixo para que toda a forma pareça uma linha contínua.', form: 'Esfera de costelas em espiral' },
-    fr: { name: 'Helix', desc: 'Une sphère composée de dizaines de nervures courbes, enroulées autour d’un seul axe pour que toute la forme soit lue comme une seule ligne continue.', form: 'Sphère à nervures spirales' }
+    fr: { name: 'Helix', desc: 'Une sphère composée de dizaines de nervures courbes, enroulées autour d’un seul axe pour que toute la forme soit lue comme une seule ligne continue.', form: 'Sphère à nervures spirales' },
+    de: { name: 'Helix', desc: 'Eine Kugel aus Dutzenden gebogener Rippen, die um eine einzelne Achse gewickelt sind, sodass die gesamte Form wie eine durchgehende Linie wirkt.', form: 'Spiralgerippte Kugel' }
   },
   torque: {
     en: { name: 'Torque', desc: 'A waisted cylinder, twisted along its own axis — light escapes in diagonal bands that shift as you move around it.', form: 'Twisted, waisted cylinder' },
     pt: { name: 'Torque', desc: 'Um cilindro afilado, torcido ao longo do seu eixo — a luz escapa em faixas diagonais que mudam conforme te moves à sua volta.', form: 'Cilindro torcido e afunilado' },
-    fr: { name: 'Torque', desc: 'Un cylindre cintré, torsadé sur son propre axe — la lumière s’échappe en bandes diagonales qui changent quand on se déplace autour.', form: 'Cylindre torsadé et évasé' }
+    fr: { name: 'Torque', desc: 'Un cylindre cintré, torsadé sur son propre axe — la lumière s’échappe en bandes diagonales qui changent quand on se déplace autour.', form: 'Cylindre torsadé et évasé' },
+    de: { name: 'Torque', desc: 'Ein taillierter Zylinder, der entlang seiner eigenen Achse verdreht ist — Licht entweicht in diagonalen Bändern, die sich ändern, wenn man sich darum bewegt.', form: 'Gedrehter, taillierter Zylinder' }
   },
   current: {
     en: { name: 'Current', desc: 'Straight ribs bent into a single running wave, wrapped evenly around a plain cylinder.', form: 'Wave-ribbed cylinder' },
     pt: { name: 'Current', desc: 'Costelas rectas curvadas numa única onda contínua, envolvidas de forma uniforme em torno de um cilindro simples.', form: 'Cilindro com nervuras onduladas' },
-    fr: { name: 'Current', desc: 'Des nervures droites pliées en une seule vague continue, enroulées uniformément autour d’un cylindre simple.', form: 'Cylindre à nervures ondulées' }
+    fr: { name: 'Current', desc: 'Des nervures droites pliées en une seule vague continue, enroulées uniformément autour d’un cylindre simple.', form: 'Cylindre à nervures ondulées' },
+    de: { name: 'Current', desc: 'Gerade Rippen, die zu einer einzigen laufenden Welle gebogen sind und gleichmäßig um einen einfachen Zylinder gewickelt sind.', form: 'Wellenförmiger Rippenzylinder' }
   },
   tide: {
     en: { name: 'Tide', desc: 'The same running wave as Current, drawn out over a squared column instead of a circle.', form: 'Wave-ribbed square column' },
     pt: { name: 'Tide', desc: 'A mesma onda contínua de Current, estendida por uma coluna quadrada em vez de um círculo.', form: 'Coluna quadrada com nervuras onduladas' },
-    fr: { name: 'Tide', desc: 'La même vague que Current, mais prolongée sur une colonne carrée au lieu d’un cercle.', form: 'Colonne carrée à nervures ondulées' }
+    fr: { name: 'Tide', desc: 'La même vague que Current, mais prolongée sur une colonne carrée au lieu d’un cercle.', form: 'Colonne carrée à nervures ondulées' },
+    de: { name: 'Tide', desc: 'Dieselbe laufende Welle wie bei Current, aber auf eine quadratische Säule statt auf einen Kreis gezogen.', form: 'Quadratische Säule mit Wellenrippen' }
   },
   reed: {
     en: { name: 'Reed', desc: 'Dozens of hairline ribs, pulled the full length of a tapered egg from base to opening.', form: 'Fine-ribbed ellipsoid' },
     pt: { name: 'Reed', desc: 'Dezenas de nervuras finas, estendidas ao longo de um ovo afunilado desde a base até à abertura.', form: 'Elipsoide de nervuras finas' },
-    fr: { name: 'Reed', desc: 'Des dizaines de nervures très fines, tirées sur toute la longueur d’un œuf effilé, de la base à l’ouverture.', form: 'Ellipsoïde à nervures fines' }
+    fr: { name: 'Reed', desc: 'Des dizaines de nervures très fines, tirées sur toute la longueur d’un œuf effilé, de la base à l’ouverture.', form: 'Ellipsoïde à nervures fines' },
+    de: { name: 'Reed', desc: 'Dutzende feiner Rippen, die über die gesamte Länge eines verjüngten Eies von der Basis bis zur Öffnung reichen.', form: 'Fein gerippter Ellipsoid' }
   },
   orb: {
     en: { name: 'Orb', desc: 'The same hairline ribs as Reed, wrapped instead around a plain sphere, close and even.', form: 'Fine-ribbed sphere' },
     pt: { name: 'Orb', desc: 'As mesmas nervuras finas de Reed, mas envolvidas em torno de uma esfera lisa, próximas e uniformes.', form: 'Esfera de nervuras finas' },
-    fr: { name: 'Orb', desc: 'Les mêmes nervures fines que Reed, mais cette fois autour d’une sphère simple, serrées et régulières.', form: 'Sphère à nervures fines' }
+    fr: { name: 'Orb', desc: 'Les mêmes nervures fines que Reed, mais cette fois autour d’une sphère simple, serrées et régulières.', form: 'Sphère à nervures fines' },
+    de: { name: 'Orb', desc: 'Dieselben feinen Rippen wie bei Reed, diesmal jedoch um eine glatte Kugel gelegt, dicht und gleichmäßig.', form: 'Fein gerippte Kugel' }
   },
   column: {
     en: { name: 'Column', desc: 'Wide, flat-faced flutes running straight up a broad cylinder — the most architectural of the set.', form: 'Fluted cylinder' },
     pt: { name: 'Column', desc: 'Canaletas largas e planas a correr em linha recta por um cilindro largo — o mais arquitectónico do conjunto.', form: 'Cilindro com ranhuras' },
-    fr: { name: 'Column', desc: 'De larges cannelures plates qui montent droit le long d’un cylindre large — le plus architectural de la série.', form: 'Cylindre cannelé' }
+    fr: { name: 'Column', desc: 'De larges cannelures plates qui montent droit le long d’un cylindre large — le plus architectural de la série.', form: 'Cylindre cannelé' },
+    de: { name: 'Column', desc: 'Breite, flache Rillen, die gerade an einem großen Zylinder hochlaufen — das architektonischste Stück der Serie.', form: 'Gerillter Zylinder' }
   },
   vessel: {
     en: { name: 'Vessel', desc: 'The same fluting as Column, drawn long and narrow over a rounded vase silhouette.', form: 'Fluted vase' },
     pt: { name: 'Vessel', desc: 'As mesmas ranhuras de Column, alongadas e estreitas sobre uma silhueta de vaso arredondado.', form: 'Vaso com ranhuras' },
-    fr: { name: 'Vessel', desc: 'Les mêmes cannelures que Column, allongées et étroites sur une silhouette de vase arrondie.', form: 'Vase cannelé' }
+    fr: { name: 'Vessel', desc: 'Les mêmes cannelures que Column, allongées et étroites sur une silhouette de vase arrondie.', form: 'Vase cannelé' },
+    de: { name: 'Vessel', desc: 'Die gleichen Rillen wie bei Column, lang und schmal über eine abgerundete Vasenform gezogen.', form: 'Gerillte Vase' }
   }
 };
 
@@ -438,7 +486,7 @@ function t(key) {
 }
 
 function fmt(n) {
-  const localeMap = { en: 'en-IE', pt: 'pt-PT', fr: 'fr-FR' };
+  const localeMap = { en: 'en-IE', pt: 'pt-PT', fr: 'fr-FR', de: 'de-DE' };
   return Number(n).toLocaleString(localeMap[state.lang] || 'en-IE', { style: 'currency', currency: 'EUR' });
 }
 
