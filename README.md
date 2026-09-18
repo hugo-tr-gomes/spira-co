@@ -1,6 +1,6 @@
 # Spira Co.
 
-A boutique lighting catalogue and storefront experience for handcrafted lamps. This project is a single-page, static web app that showcases a premium collection, supports language switching, and includes a shopping cart and checkout flow.
+A boutique lighting catalogue and storefront experience for handcrafted lamps. This project is a React single-page app that showcases a premium collection, supports language switching, and includes a shopping cart and checkout flow.
 
 ## Overview
 
@@ -15,41 +15,62 @@ Spira Co. presents a curated collection of sculptural lamps with a minimal edito
 - Interactive shopping cart drawer
 - Quantity controls and subtotal calculation
 - Checkout modal form for customer details
-- Fully static implementation with no build tool required
+- React component architecture powered by Vite
+- i18next translations with browser locale detection and English fallback
 
 ## Project structure
 
-- `index.html` — complete page structure, styling, and interactivity
+- `index.html` — Vite HTML entry point
+- `src/App.jsx` — page composition, cart state, theme, and checkout state
+- `src/components/` — reusable storefront UI, with each component folder containing its JSX, CSS, and test files
+- `src/data/` — catalogue data and product metadata
+- `src/utils/` — shared currency and product-copy helpers
+- `src/i18n.js` — supported languages, translated copy, locale detection, and fallback configuration
+- `src/styles.css` — responsive visual system and layout
+
+Each component follows this pattern:
+
+```text
+src/components/Header/
+├── Header.jsx
+├── Header.css
+└── Header.test.jsx
+```
+- `src/main.jsx` — React application bootstrap
 - `README.md` — project overview and setup instructions
 
 ## Local development
 
-Because this is a static site, there is no dependency installation or build step.
-
-### Option 1: Open directly in a browser
-
-1. Open `index.html` in your browser.
-2. The page should load and function as expected.
-
-### Option 2: Run a local web server
-
-From the project root:
+Install dependencies and start the Vite development server:
 
 ```bash
-python3 -m http.server 8000
+npm install
+npm run dev
 ```
 
-Then visit:
+Then visit the local URL shown by Vite, usually:
 
 ```text
-http://localhost:8000
+http://localhost:5173
+```
+
+Create a production build with:
+
+```bash
+npm run build
+```
+
+Run the component tests with:
+
+```bash
+npm test
 ```
 
 ## Notes
 
 - The site is implemented as a front-end prototype and uses placeholder product imagery and sample data.
-- Styling and behavior are embedded in the HTML document for simplicity.
-- This project is best suited for quick previewing, portfolio demos, and design exploration.
+- Product data and UI behavior are now separated into React-ready structures for future API, CMS, and checkout integrations.
+- The Stripe Payment Link remains a placeholder and must be configured before production use.
 
 ## License
 

@@ -1,0 +1,2 @@
+.top .lang-switch button.active { border-color: var(--accent); background: var(--ghost); color: var(--text); }
+.top .theme-toggle:hover, .top .cart-btn:hover { border-color: var(--accent); }

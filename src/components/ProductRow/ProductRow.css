@@ -1,0 +1,3 @@
+.product-row .add-btn.added { background: var(--accent); color: var(--accent-ink); }
+.product-row .product-media img { transition: transform .35s ease; }
+.product-row .product-media:hover img { transform: scale(1.02); }

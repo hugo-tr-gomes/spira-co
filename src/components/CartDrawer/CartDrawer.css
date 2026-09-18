@@ -1,0 +1,2 @@
+.drawer .cart-item { contain: content; }
+.drawer .checkout-btn:disabled { cursor: not-allowed; }
